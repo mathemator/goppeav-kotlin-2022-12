@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val javaVersion: String by project
 val jupiterVersion: String by project
+val abc: String by project
 
 buildscript {
     repositories {
@@ -11,7 +12,7 @@ buildscript {
 
 
 plugins {
-    kotlin("jvm") version "1.7.21"
+    id("org.jetbrains.kotlin.jvm")
 }
 
 group = "ru.otus.goppeav.kotlin-tasks"
