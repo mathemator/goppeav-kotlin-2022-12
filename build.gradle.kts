@@ -12,7 +12,6 @@ buildscript {
 
 plugins {
     kotlin("jvm") version "1.7.21"
-    kotlin("kapt") version "1.7.21"
 }
 
 group = "ru.otus.goppeav.kotlin-tasks"
