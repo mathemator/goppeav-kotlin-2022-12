@@ -10,9 +10,8 @@ buildscript {
     }
 }
 
-
 plugins {
-    id("org.jetbrains.kotlin.jvm")
+    kotlin("jvm")
 }
 
 group = "ru.otus.goppeav.kotlin-tasks"
