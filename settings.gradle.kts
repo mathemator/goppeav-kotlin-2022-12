@@ -1,11 +1,14 @@
 pluginManagement {
     val kotlinJvmVersion: String by settings
+    val kotestVersion: String by settings
+
     plugins {
-        id("org.jetbrains.kotlin.jvm") version kotlinJvmVersion
+        kotlin("jvm") version kotlinJvmVersion
+        kotlin("multiplatform") version kotlinJvmVersion
+        id("io.kotest.multiplatform") version kotestVersion apply false
     }
 }
 
 rootProject.name = "goppeav-kotlin-2022-12"
 
-include("task-1-1")
-include("task-main")
+include("app")

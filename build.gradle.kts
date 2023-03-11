@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val javaVersion: String by project
 val jupiterVersion: String by project
-val abc: String by project
 
 buildscript {
     repositories {
@@ -19,17 +18,15 @@ version = "1.0"
 
 allprojects {
     repositories {
+        google()
         mavenCentral()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
 subprojects {
     group = rootProject.group
     version = rootProject.version
-
-    repositories {
-        mavenCentral()
-    }
 
     pluginManager.withPlugin("org.jetbrains.kotlin.jvm") {
         dependencies {
