@@ -34,6 +34,8 @@ subprojects {
             testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$jupiterVersion")
         }
     }
+
+
 }
 
 tasks.withType<KotlinCompile> {
