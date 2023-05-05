@@ -2,57 +2,75 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
-    kotlin("jvm")
-
-    application
-}
-
-repositories {
-    maven {
-        url = uri("https://github.com/sndyuk/maven")
-    }
+    kotlin("multiplatform")
+    id("io.kotest.multiplatform")
 }
 
 kotlin {
+    jvm {}
+    js(BOTH) {
+        browser()
+    }
 
     val kotestVersion: String by project
     val coroutinesVersion: String by project
+    val jUnitJupiterVersion: String by project
 
-    dependencies {
-        implementation(kotlin("stdlib-jdk8"))
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
 
-        implementation("org.slf4j:slf4j-api:1.7.25")
-        implementation("ch.qos.logback:logback-classic:1.1.7")
-        implementation("ch.qos.logback:logback-core:1.1.7")
-        implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
-        implementation("com.sndyuk:logback-more-appenders:1.3.1")
-        implementation("org.fluentd:fluent-logger:0.3.4")
-        implementation(kotlin("test-common"))
-        implementation(kotlin("test-annotations-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
 
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion")
+                implementation("io.kotest:kotest-framework-engine:$kotestVersion")
+                implementation("io.kotest:kotest-framework-datatest:$kotestVersion")
+                implementation("io.kotest:kotest-assertions-core:$kotestVersion")
+                implementation("io.kotest:kotest-property:$kotestVersion")
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
 
-        implementation("io.kotest:kotest-framework-engine:$kotestVersion")
-        implementation("io.kotest:kotest-framework-datatest:$kotestVersion")
-        implementation("io.kotest:kotest-assertions-core:$kotestVersion")
-        implementation("io.kotest:kotest-property:$kotestVersion")
+                // Alternatively, add the dependency to a specific target.
+                // For example, we could add to the Javascript target only.
+                // implementation("io.kotest:kotest-assertions-core:$kotestVersion")
+                // implementation("io.kotest:kotest-property:$kotestVersion")
+            }
+        }
+        val jvmMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-jdk8"))
+            }
+        }
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit5"))
+                implementation("io.kotest:kotest-runner-junit5-jvm:$kotestVersion")
+                implementation("org.junit.jupiter:junit-jupiter-params:$jUnitJupiterVersion")
+            }
+        }
     }
-
-}
-
-tasks.jar {
-    manifest.attributes["Main-Class"] = "ru.otus.goppeav.main.MainKt"
-    val dependencies = configurations
-        .runtimeClasspath
-        .get()
-        .map(::zipTree) // OR .map { zipTree(it) }
-    from(dependencies)
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 tasks {
     withType<Test>().configureEach {
-        useJUnitPlatform()
+        useJUnitPlatform {
+//            includeTags.add("sampling")
+        }
         filter {
             isFailOnNoMatchingTests = false
         }
