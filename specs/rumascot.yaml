@@ -215,7 +215,6 @@ components:
           type: string
           example: Выполнена из дерева, покрыта краской и лаком
         ownerId:
-          description: идентификатор пользователя-владельца объявления
           $ref: '#/components/schemas/UserId'
         tags:
           type: array
