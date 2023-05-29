@@ -21,3 +21,4 @@ gradle-app.setting
 *.iws
 *.iml
 *.ipr
+/app/out/
