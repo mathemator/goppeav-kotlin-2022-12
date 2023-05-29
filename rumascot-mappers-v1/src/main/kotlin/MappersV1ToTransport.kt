@@ -3,7 +3,7 @@ package ru.otus.otuskotlin.marketplace.mappers.v1
 import ru.otus.otuskotlin.marketplace.api.v1.models.*
 import ru.otus.otuskotlin.marketplace.common.ContextRum
 import ru.otus.otuskotlin.marketplace.common.models.*
-import ru.otus.otuskotlin.marketplace.mappers.v1.exceptions.UnknownMkplCommand
+import ru.otus.otuskotlin.marketplace.mappers.v1.exceptions.UnknownRumCommand
 
 fun ContextRum.toTransportAd(): IResponse = when (val cmd = command) {
     CommandRum.CREATE -> toTransportCreate()
@@ -11,7 +11,7 @@ fun ContextRum.toTransportAd(): IResponse = when (val cmd = command) {
     CommandRum.UPDATE -> toTransportUpdate()
     CommandRum.DELETE -> toTransportDelete()
     CommandRum.SEARCH -> toTransportSearch()
-    CommandRum.NONE -> throw UnknownMkplCommand(cmd)
+    CommandRum.NONE -> throw UnknownRumCommand(cmd)
 }
 
 fun ContextRum.toTransportCreate() = AdCreateResponse(
