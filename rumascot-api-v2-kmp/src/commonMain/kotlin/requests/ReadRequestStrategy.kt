@@ -1,8 +1,8 @@
-package ru.otus.otuskotlin.marketplace.api.v2.requests
+package ru.otus.goppeav.rumascot.api.v2.requests
 
 import kotlinx.serialization.KSerializer
-import ru.otus.otuskotlin.marketplace.api.v2.models.AdReadRequest
-import ru.otus.otuskotlin.marketplace.api.v2.models.IRequest
+import ru.otus.goppeav.rumascot.api.v2.models.AdReadRequest
+import ru.otus.goppeav.rumascot.api.v2.models.IRequest
 import kotlin.reflect.KClass
 
 object ReadRequestStrategy: IRequestStrategy {

@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.marketplace.common.stubs
+package ru.otus.goppeav.rumascot.common.stubs
 
 enum class StubsRum {
     NONE,

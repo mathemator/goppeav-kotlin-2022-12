@@ -1,9 +1,9 @@
-package ru.otus.otuskotlin.marketplace.mappers.v2
+package ru.otus.goppeav.rumascot.mappers.v2
 
-import ru.otus.otuskotlin.marketplace.api.v2.models.*
-import ru.otus.otuskotlin.marketplace.common.ContextRum
-import ru.otus.otuskotlin.marketplace.common.models.*
-import ru.otus.otuskotlin.marketplace.mappers.v2.exceptions.UnknownCommandRum
+import ru.otus.goppeav.rumascot.api.v2.models.*
+import ru.otus.goppeav.rumascot.common.ContextRum
+import ru.otus.goppeav.rumascot.common.models.*
+import ru.otus.goppeav.rumascot.mappers.v2.exceptions.UnknownCommandRum
 
 fun ContextRum.toTransport(): IResponse = when (val cmd = command) {
     CommandRum.CREATE -> toTransportCreate()

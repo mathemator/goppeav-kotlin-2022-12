@@ -1,8 +1,8 @@
-package ru.otus.otuskotlin.marketplace.api.v2
+package ru.otus.goppeav.rumascot.api.v2
 
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
-import ru.otus.otuskotlin.marketplace.api.v2.models.*
+import ru.otus.goppeav.rumascot.api.v2.models.*
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals

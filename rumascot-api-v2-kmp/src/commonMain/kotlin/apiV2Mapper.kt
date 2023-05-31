@@ -1,11 +1,11 @@
-package ru.otus.otuskotlin.marketplace.api.v2
+package ru.otus.goppeav.rumascot.api.v2
 
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationStrategy
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.contextual
-import ru.otus.otuskotlin.marketplace.api.v2.models.*
+import ru.otus.goppeav.rumascot.api.v2.models.*
 
 @OptIn(ExperimentalSerializationApi::class)
 val apiV2Mapper = Json {
