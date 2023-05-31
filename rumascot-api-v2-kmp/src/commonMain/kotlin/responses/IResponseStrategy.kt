@@ -1,7 +1,7 @@
-package ru.otus.otuskotlin.marketplace.api.v2.requests
+package ru.otus.goppeav.rumascot.api.v2.requests
 
-import ru.otus.otuskotlin.marketplace.api.v2.IApiStrategy
-import ru.otus.otuskotlin.marketplace.api.v2.models.IResponse
+import ru.otus.goppeav.rumascot.api.v2.IApiStrategy
+import ru.otus.goppeav.rumascot.api.v2.models.IResponse
 
 sealed interface IResponseStrategy: IApiStrategy<IResponse> {
     companion object {
