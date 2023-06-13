@@ -69,7 +69,6 @@ class WsControllerTest {
 
             withTimeout(30000) {
                 client.receive() // игнорируем инит
-                delay(200)
                 val request = apiV1Mapper.writeValueAsString(AdReadRequest(requestId = "1234", requestType = "read"))
                 client.session?.basicRemote?.sendText(request)
 
