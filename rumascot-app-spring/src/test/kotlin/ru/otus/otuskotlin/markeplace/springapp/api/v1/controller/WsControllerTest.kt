@@ -67,11 +67,13 @@ class WsControllerTest {
             }
             assert(client.session?.isOpen == true)
 
-            withTimeout(30000) {
-                client.receive() // игнорируем инит
-                val request = apiV1Mapper.writeValueAsString(AdReadRequest(requestId = "1234", requestType = "read"))
+            client.receive() // игнорируем инит
+            val request = apiV1Mapper.writeValueAsString(AdReadRequest(requestId = "1234", requestType = "read"))
+            withContext(Dispatchers.IO) {
                 client.session?.basicRemote?.sendText(request)
+            }
 
+            withTimeout(3000) {
                 val response = client.receive()
                 val responseMessage = apiV1Mapper.readValue(response, IResponse::class.java)
                 assert(responseMessage is AdReadResponse)
