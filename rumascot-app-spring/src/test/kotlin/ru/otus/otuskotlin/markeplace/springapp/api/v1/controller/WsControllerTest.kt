@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
@@ -76,6 +77,10 @@ class WsControllerTest {
                 val responseMessage = apiV1Mapper.readValue(response, IResponse::class.java)
                 assert(responseMessage is AdReadResponse)
                 assert(responseMessage.result == ResponseResult.SUCCESS)
+
+                val adReadResponse = responseMessage as AdReadResponse
+                assertEquals("Фигурка Java Duke", adReadResponse.ad?.title)
+                assertEquals(DealSide.PROPOSAL, adReadResponse.ad?.dealSide)
             }
         }
     }
