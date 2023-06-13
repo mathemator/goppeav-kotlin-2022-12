@@ -1,4 +1,4 @@
 FROM bellsoft/liberica-openjdk-alpine:17
-COPY build/libs/app-jvm-1.0.jar /app/app.jar
+COPY build/libs/rumascot-app-spring-0.0.1-SNAPSHOT-plain.jar /app/app.jar
 
 ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-jar", "/app/app.jar"]

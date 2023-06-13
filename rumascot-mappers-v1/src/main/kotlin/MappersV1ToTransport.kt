@@ -14,6 +14,12 @@ fun ContextRum.toTransportAd(): IResponse = when (val cmd = command) {
     CommandRum.NONE -> throw UnknownRumCommand(cmd)
 }
 
+fun ContextRum.toTransportInit() = AdInitResponse(
+    requestId = this.requestId.asString().takeIf { it.isNotBlank() },
+    result = if (errors.isEmpty()) ResponseResult.SUCCESS else ResponseResult.ERROR,
+    errors = errors.toTransportErrors(),
+)
+
 fun ContextRum.toTransportCreate() = AdCreateResponse(
     requestId = this.requestId.asString().takeIf { it.isNotBlank() },
     result = if (state == StateRum.RUNNING) ResponseResult.SUCCESS else ResponseResult.ERROR,
