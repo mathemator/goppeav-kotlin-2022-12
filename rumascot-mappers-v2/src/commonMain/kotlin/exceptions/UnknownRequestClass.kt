@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.marketplace.mappers.v2.exceptions
+package ru.otus.goppeav.rumascot.mappers.v2.exceptions
 
 import kotlin.reflect.KClass
 

@@ -1,8 +1,8 @@
-package ru.otus.otuskotlin.marketplace.common
+package ru.otus.goppeav.rumascot.common
 
 import kotlinx.datetime.Instant
-import ru.otus.otuskotlin.marketplace.common.models.*
-import ru.otus.otuskotlin.marketplace.common.stubs.StubsRum
+import ru.otus.goppeav.rumascot.common.models.*
+import ru.otus.goppeav.rumascot.common.stubs.StubsRum
 
 data class ContextRum(
     var command: CommandRum = CommandRum.NONE,

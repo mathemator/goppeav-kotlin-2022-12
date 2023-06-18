@@ -1,5 +1,5 @@
-package ru.otus.otuskotlin.marketplace.mappers.v1.exceptions
+package ru.otus.goppeav.rumascot.mappers.v1.exceptions
 
-import ru.otus.otuskotlin.marketplace.common.models.CommandRum
+import ru.otus.goppeav.rumascot.common.models.CommandRum
 
 class UnknownRumCommand(command: CommandRum) : Exception("Wrong command $command at mapping toTransport stage")

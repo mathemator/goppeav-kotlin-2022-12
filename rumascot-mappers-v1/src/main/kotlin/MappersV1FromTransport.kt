@@ -1,11 +1,11 @@
-package ru.otus.otuskotlin.marketplace.mappers.v1
+package ru.otus.goppeav.rumascot.mappers.v1
 
-import ru.otus.otuskotlin.marketplace.api.v1.models.*
-import ru.otus.otuskotlin.marketplace.common.ContextRum
-import ru.otus.otuskotlin.marketplace.common.models.*
-import ru.otus.otuskotlin.marketplace.common.models.WorkModeRum
-import ru.otus.otuskotlin.marketplace.common.stubs.StubsRum
-import ru.otus.otuskotlin.marketplace.mappers.v1.exceptions.UnknownRequestClass
+import ru.otus.goppeav.rumascot.api.v1.models.*
+import ru.otus.goppeav.rumascot.common.ContextRum
+import ru.otus.goppeav.rumascot.common.models.*
+import ru.otus.goppeav.rumascot.common.models.WorkModeRum
+import ru.otus.goppeav.rumascot.common.stubs.StubsRum
+import ru.otus.goppeav.rumascot.mappers.v1.exceptions.UnknownRequestClass
 
 fun ContextRum.fromTransport(request: IRequest) = when (request) {
     is AdCreateRequest -> fromTransport(request)
