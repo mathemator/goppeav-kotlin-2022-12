@@ -25,6 +25,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
 
+    implementation(project(":rumascot-app-common"))
+
     // transport models
     implementation(project(":rumascot-common"))
 
@@ -35,6 +37,15 @@ dependencies {
     // v2 api
     implementation(project(":rumascot-api-v2-kmp"))
     implementation(project(":rumascot-mappers-v2"))
+
+    // biz
+    implementation(project(":rumascot-biz"))
+
+    // other
+    implementation(project(":rumascot-lib-logging-common"))
+    implementation(project(":rumascot-lib-logging-logback"))
+    implementation(project(":rumascot-mappers-log1"))
+    implementation(project(":rumascot-api-log1"))
 
     // Stubs
     implementation(project(":rumascot-stubs"))

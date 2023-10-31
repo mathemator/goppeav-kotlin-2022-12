@@ -24,12 +24,24 @@ pluginManagement {
     }
 }
 
+
+include("rumascot-api-log1")
+
 include("rumascot-api-v1-jackson")
 include("rumascot-api-v2-kmp")
 
 include("rumascot-app-spring")
+include("rumascot-app-common")
+
+include("rumascot-biz")
 
 include("rumascot-common")
+
+include("rumascot-lib-logging-common")
+include("rumascot-lib-logging-logback")
+
+include("rumascot-mappers-log1")
+
 include("rumascot-mappers-v1")
 include("rumascot-mappers-v2")
 
