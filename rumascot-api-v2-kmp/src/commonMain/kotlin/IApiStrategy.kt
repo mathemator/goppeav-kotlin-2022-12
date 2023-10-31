@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.marketplace.api.v2
+package ru.otus.goppeav.rumascot.api.v2
 
 import kotlinx.serialization.KSerializer
 import kotlin.reflect.KClass

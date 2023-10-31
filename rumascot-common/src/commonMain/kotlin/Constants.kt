@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.marketplace.common
+package ru.otus.goppeav.rumascot.common
 
 import kotlinx.datetime.Instant
 

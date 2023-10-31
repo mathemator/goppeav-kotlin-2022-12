@@ -1,4 +1,4 @@
-package ru.otus.otuskotlin.marketplace.common.models
+package ru.otus.goppeav.rumascot.common.models
 
 data class AdRum(
     var id: AdIdRum = AdIdRum.NONE,

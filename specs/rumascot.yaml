@@ -144,6 +144,7 @@ components:
           update: '#/components/schemas/AdUpdateRequest'
           delete: '#/components/schemas/AdDeleteRequest'
           search: '#/components/schemas/AdSearchRequest'
+          init: '#/components/schemas/AdInitResponse'
 
     Error:
       type: object
@@ -189,6 +190,7 @@ components:
           update: '#/components/schemas/AdUpdateResponse'
           delete: '#/components/schemas/AdDeleteResponse'
           search: '#/components/schemas/AdSearchResponse'
+          init: '#/components/schemas/AdInitResponse'
 
     UserId:
       type: integer
@@ -366,6 +368,10 @@ components:
         - makeVisiblePublic
         - makeVisibleOwn
         - makeVisibleGroup
+
+    AdInitResponse:
+      allOf:
+        - $ref: '#/components/schemas/IResponse'
 
     AdResponseSingle:
       allOf:
